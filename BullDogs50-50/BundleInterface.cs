@@ -8,9 +8,6 @@ namespace BullDogs50_50
 {
     interface BundleInterface
     {
-        int getBundleValue();
-        int getSetValue();
-        int getTicketsPerSet();
-        int getSetsPerBundle();
+        DateTime getCreateTime();
     }
 }

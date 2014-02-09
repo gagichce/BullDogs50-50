@@ -8,7 +8,24 @@ namespace BullDogs50_50
 {
     class Seller
     {
+        private int sellerNumber;
         private string sellerName;
+        public List<Bundle> soldBundles = new List<Bundle>();
 
+        public Seller(int sellerNumber, string sellerName)
+        {
+            this.sellerName = sellerName;
+            this.sellerNumber = sellerNumber;
+        }
+
+        public void addThreeForFiveBundle()
+        {
+            soldBundles.Add(new ThreeForFiveBundle());
+        }
+
+        public void addOneForTwoBundle()
+        {
+            soldBundles.Add(new OneForTwoBundle());
+        }
     }
 }

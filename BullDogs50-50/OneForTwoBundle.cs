@@ -9,12 +9,12 @@ namespace BullDogs50_50
     class OneForTwoBundle : Bundle
     {
         public const int setValue = 2;
-        public const int bundleValue = 48;
         public const int ticketsPerSet = 1;
         public const int setsPerBundle = 24;
 
         public OneForTwoBundle()
         {
+            bundleValue = 48;
             CreationTime = DateTime.Now;
         }
 

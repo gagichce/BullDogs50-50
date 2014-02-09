@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Bundle.cs" />
     <Compile Include="BundleInterface.cs" />
+    <Compile Include="FiftyFiftyHelper.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

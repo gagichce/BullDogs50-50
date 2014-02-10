@@ -17,6 +17,5 @@ namespace BullDogs50_50
             this.bundleValue = 48;
             this.CreationTime = DateTime.Now;
         }
-
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BullDogs50_50
 {
-    class Bundle : BundleInterface
+    public class Bundle : BundleInterface
     {
         protected DateTime CreationTime;
         protected int bundleValue;

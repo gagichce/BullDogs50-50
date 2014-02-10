@@ -33,6 +33,7 @@
             this.sellerName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pouchNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.soldValue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.buttonAddSeller = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // totalCashMoney
@@ -72,11 +73,22 @@
             this.soldValue.Text = "Sold Value";
             this.soldValue.Width = 83;
             // 
+            // buttonAddSeller
+            // 
+            this.buttonAddSeller.Location = new System.Drawing.Point(261, 194);
+            this.buttonAddSeller.Name = "buttonAddSeller";
+            this.buttonAddSeller.Size = new System.Drawing.Size(75, 23);
+            this.buttonAddSeller.TabIndex = 2;
+            this.buttonAddSeller.Text = "Add Seller";
+            this.buttonAddSeller.UseVisualStyleBackColor = true;
+            this.buttonAddSeller.Click += new System.EventHandler(this.buttonAddSeller_Click);
+            // 
             // mainEntryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 492);
+            this.Controls.Add(this.buttonAddSeller);
             this.Controls.Add(this.listViewSeller);
             this.Controls.Add(this.totalCashMoney);
             this.Name = "mainEntryForm";
@@ -94,6 +106,7 @@
         private System.Windows.Forms.ColumnHeader sellerName;
         private System.Windows.Forms.ColumnHeader soldValue;
         private System.Windows.Forms.ColumnHeader pouchNumber;
+        private System.Windows.Forms.Button buttonAddSeller;
     }
 }
 

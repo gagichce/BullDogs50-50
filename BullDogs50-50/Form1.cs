@@ -16,7 +16,7 @@ namespace BullDogs50_50
         public mainEntryForm()
         {
             InitializeComponent();
-            currentSellers.Add(new Seller(1, "Colin Gagich"));
+            addSeller(new Seller(1, "Colin Gagich"));
             targetSeller = currentSellers[0];
             targetSeller.addThreeForFiveBundle();
             targetSeller.addThreeForFiveBundle();
@@ -25,6 +25,17 @@ namespace BullDogs50_50
         }
         private List<Seller> currentSellers = new List<Seller>();
         private Seller targetSeller;
+
+        public void addSeller(Seller toAdd)
+        {
+            this.currentSellers.Add(toAdd);
+            updateList();
+        }
+
+        public List<Seller> getSellers()
+        {
+            return this.currentSellers;
+        }
 
         private void mainEntryForm_KeyDown(object sender, KeyEventArgs e)
         {
@@ -51,8 +62,15 @@ namespace BullDogs50_50
 
         private void updateList()
         {
+            listViewSeller.Items.Clear();
             currentSellers = currentSellers.OrderByDescending(x => x.valueSold()).ToList();
             currentSellers.ForEach(x => listViewSeller.Items.Add(new ListViewItem(x.ToListViewItem())));
+        }
+
+        private void buttonAddSeller_Click(object sender, EventArgs e)
+        {
+            addNewSeller newForm = new addNewSeller(this);
+            newForm.Show();
         }
     }
 }

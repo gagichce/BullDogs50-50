@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BullDogs50_50
 {
-    class Seller
+    public class Seller
     {
         private int sellerNumber;
         private string sellerName;
@@ -16,6 +16,11 @@ namespace BullDogs50_50
         {
             this.sellerName = sellerName;
             this.sellerNumber = sellerNumber;
+        }
+
+        public int getPouchNumber()
+        {
+            return this.sellerNumber;
         }
 
         public void addThreeForFiveBundle()

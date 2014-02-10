@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.totalCashMoney = new System.Windows.Forms.Label();
+            this.listViewSeller = new System.Windows.Forms.ListView();
+            this.sellerName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.pouchNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.soldValue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // totalCashMoney
@@ -41,11 +45,39 @@
             this.totalCashMoney.TabIndex = 0;
             this.totalCashMoney.Text = "$0.00";
             // 
+            // listViewSeller
+            // 
+            this.listViewSeller.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.sellerName,
+            this.pouchNumber,
+            this.soldValue});
+            this.listViewSeller.Location = new System.Drawing.Point(261, 223);
+            this.listViewSeller.Name = "listViewSeller";
+            this.listViewSeller.Size = new System.Drawing.Size(427, 257);
+            this.listViewSeller.TabIndex = 1;
+            this.listViewSeller.UseCompatibleStateImageBehavior = false;
+            this.listViewSeller.View = System.Windows.Forms.View.Details;
+            // 
+            // sellerName
+            // 
+            this.sellerName.Text = "Seller Name";
+            this.sellerName.Width = 121;
+            // 
+            // pouchNumber
+            // 
+            this.pouchNumber.Text = "Pouch";
+            // 
+            // soldValue
+            // 
+            this.soldValue.Text = "Sold Value";
+            this.soldValue.Width = 83;
+            // 
             // mainEntryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(612, 492);
+            this.ClientSize = new System.Drawing.Size(700, 492);
+            this.Controls.Add(this.listViewSeller);
             this.Controls.Add(this.totalCashMoney);
             this.Name = "mainEntryForm";
             this.Text = "Hamilton Bulldogs 50/50 Draw";
@@ -58,6 +90,10 @@
         #endregion
 
         private System.Windows.Forms.Label totalCashMoney;
+        private System.Windows.Forms.ListView listViewSeller;
+        private System.Windows.Forms.ColumnHeader sellerName;
+        private System.Windows.Forms.ColumnHeader soldValue;
+        private System.Windows.Forms.ColumnHeader pouchNumber;
     }
 }
 

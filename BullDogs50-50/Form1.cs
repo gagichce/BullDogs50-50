@@ -18,6 +18,10 @@ namespace BullDogs50_50
             InitializeComponent();
             currentSellers.Add(new Seller(1, "Colin Gagich"));
             targetSeller = currentSellers[0];
+            targetSeller.addThreeForFiveBundle();
+            targetSeller.addThreeForFiveBundle();
+            updateList();
+            updateTotal();
         }
         private List<Seller> currentSellers = new List<Seller>();
         private Seller targetSeller;
@@ -43,6 +47,12 @@ namespace BullDogs50_50
         private void updateTotal()
         {
             totalCashMoney.Text = String.Format("{0:C2}", (FiftyFiftyHelper.currentPotTotal(currentSellers) / 2.0));
+        }
+
+        private void updateList()
+        {
+            currentSellers = currentSellers.OrderByDescending(x => x.valueSold()).ToList();
+            currentSellers.ForEach(x => listViewSeller.Items.Add(new ListViewItem(x.ToListViewItem())));
         }
     }
 }

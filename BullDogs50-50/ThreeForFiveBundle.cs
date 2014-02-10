@@ -14,8 +14,8 @@ namespace BullDogs50_50
 
         public ThreeForFiveBundle()
         {
-            CreationTime = DateTime.Now;
-            bundleValue = 40;
+            this.CreationTime = DateTime.Now;
+            this.bundleValue = 40;
         }
     }
 }

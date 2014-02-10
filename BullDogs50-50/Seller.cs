@@ -27,5 +27,19 @@ namespace BullDogs50_50
         {
             soldBundles.Add(new OneForTwoBundle());
         }
+
+        public int valueSold()
+        {
+            return soldBundles.Sum(x => x.getBundleValue());
+        }
+
+        public string[] ToListViewItem()
+        {
+            return new string[]{
+                sellerName,
+                sellerNumber.ToString("00"),
+                valueSold().ToString("C")
+            };
+        }
     }
 }

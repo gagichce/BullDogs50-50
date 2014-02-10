@@ -14,8 +14,8 @@ namespace BullDogs50_50
 
         public OneForTwoBundle()
         {
-            bundleValue = 48;
-            CreationTime = DateTime.Now;
+            this.bundleValue = 48;
+            this.CreationTime = DateTime.Now;
         }
 
     }

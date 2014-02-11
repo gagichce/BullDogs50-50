@@ -10,14 +10,14 @@ namespace BullDogs50_50
     {
         public static int currentPotTotal(List<Seller> theSellers)
         {
-            return theSellers.Sum(x => x.valueSold());
+            return theSellers.Where(x => x.isActive()).Select(x => x.valueSold()).Sum();
         }
 
         public static string[] getAvailablePouchNumbers(List<Seller> theSellers)
         {
             List<int> possiblePouches = Enumerable.Range(1, 50).ToList();
             theSellers.ForEach(x => possiblePouches.Remove(x.getPouchNumber()));
-            return possiblePouches.ConvertAll<string>(delegate(int i) {return i.ToString();}).ToArray();
+            return possiblePouches.ConvertAll<string>(delegate(int i) { return i.ToString(); }).ToArray();
         }
     }
 }

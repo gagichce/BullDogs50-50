@@ -13,6 +13,10 @@ namespace BullDogs50_50
 {
     public partial class mainEntryForm : Form
     {
+        private List<Seller> currentSellers = new List<Seller>();
+        private Seller targetSeller;
+        private ListView.SelectedListViewItemCollection currentSelected;
+
         public mainEntryForm()
         {
             InitializeComponent();
@@ -22,9 +26,8 @@ namespace BullDogs50_50
             targetSeller.addThreeForFiveBundle();
             updateList();
             updateTotal();
+            this.Focus();
         }
-        private List<Seller> currentSellers = new List<Seller>();
-        private Seller targetSeller;
 
         public void addSeller(Seller toAdd)
         {
@@ -63,14 +66,38 @@ namespace BullDogs50_50
         private void updateList()
         {
             listViewSeller.Items.Clear();
-            currentSellers = currentSellers.OrderByDescending(x => x.valueSold()).ToList();
-            currentSellers.ForEach(x => listViewSeller.Items.Add(new ListViewItem(x.ToListViewItem())));
+            currentSellers = currentSellers.OrderByDescending(x => x.isActive()).ThenByDescending(x => x.valueSold()).ToList();
+            currentSellers.ForEach(x =>
+            {
+                if (x.isActive())
+                    listViewSeller.Items.Add(new ListViewItem(x.ToListViewItem()));
+            });
         }
 
         private void buttonAddSeller_Click(object sender, EventArgs e)
         {
             addNewSeller newForm = new addNewSeller(this);
             newForm.Show();
+        }
+
+        private void buttonRemoveSeller_Click(object sender, EventArgs e)
+        {
+            if (listViewSeller.SelectedItems.Count > 0)
+            {
+                foreach (ListViewItem myItem in (ListView.SelectedListViewItemCollection)currentSelected)
+                {
+                    currentSellers[myItem.Index].setNonActive();
+                }
+                updateTotal();
+                updateList();
+            }
+            else
+                MessageBox.Show("You must select a seller to delete!", "", MessageBoxButtons.OK);
+        }
+
+        private void listViewSeller_MouseClick(object sender, MouseEventArgs e)
+        {
+            currentSelected = listViewSeller.SelectedItems;
         }
     }
 }

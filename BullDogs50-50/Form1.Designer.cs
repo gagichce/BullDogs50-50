@@ -34,6 +34,7 @@
             this.pouchNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.soldValue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.buttonAddSeller = new System.Windows.Forms.Button();
+            this.buttonRemoveSeller = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // totalCashMoney
@@ -58,6 +59,7 @@
             this.listViewSeller.TabIndex = 1;
             this.listViewSeller.UseCompatibleStateImageBehavior = false;
             this.listViewSeller.View = System.Windows.Forms.View.Details;
+            this.listViewSeller.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listViewSeller_MouseClick);
             // 
             // sellerName
             // 
@@ -83,14 +85,26 @@
             this.buttonAddSeller.UseVisualStyleBackColor = true;
             this.buttonAddSeller.Click += new System.EventHandler(this.buttonAddSeller_Click);
             // 
+            // buttonRemoveSeller
+            // 
+            this.buttonRemoveSeller.Location = new System.Drawing.Point(342, 194);
+            this.buttonRemoveSeller.Name = "buttonRemoveSeller";
+            this.buttonRemoveSeller.Size = new System.Drawing.Size(95, 23);
+            this.buttonRemoveSeller.TabIndex = 3;
+            this.buttonRemoveSeller.Text = "Delete Seller(s)";
+            this.buttonRemoveSeller.UseVisualStyleBackColor = true;
+            this.buttonRemoveSeller.Click += new System.EventHandler(this.buttonRemoveSeller_Click);
+            // 
             // mainEntryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 492);
+            this.Controls.Add(this.buttonRemoveSeller);
             this.Controls.Add(this.buttonAddSeller);
             this.Controls.Add(this.listViewSeller);
             this.Controls.Add(this.totalCashMoney);
+            this.KeyPreview = true;
             this.Name = "mainEntryForm";
             this.Text = "Hamilton Bulldogs 50/50 Draw";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mainEntryForm_KeyDown);
@@ -107,6 +121,7 @@
         private System.Windows.Forms.ColumnHeader soldValue;
         private System.Windows.Forms.ColumnHeader pouchNumber;
         private System.Windows.Forms.Button buttonAddSeller;
+        private System.Windows.Forms.Button buttonRemoveSeller;
     }
 }
 

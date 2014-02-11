@@ -20,6 +20,7 @@ namespace BullDogs50_50
         public mainEntryForm()
         {
             InitializeComponent();
+            currentSelected = listViewSeller.SelectedItems;
             addSeller(new Seller(1, "Colin Gagich"));
             targetSeller = currentSellers[0];
             targetSeller.addThreeForFiveBundle();
@@ -42,20 +43,40 @@ namespace BullDogs50_50
 
         private void mainEntryForm_KeyDown(object sender, KeyEventArgs e)
         {
-            switch (e.KeyCode)
+            int numPressed = -1;
+            if ((e.KeyValue >= ((int)Keys.D0) && e.KeyValue <= ((int)Keys.D9)) || (e.KeyCode >= Keys.NumPad0 && e.KeyCode <= Keys.NumPad9))
             {
-                case Keys.B:
-                    targetSeller.addThreeForFiveBundle();
-                    e.SuppressKeyPress = true;
-                    Debug.WriteLine("B was pressed");
-                    break;
-                case Keys.S:
-                    e.SuppressKeyPress = true;
-                    Debug.WriteLine("S was pressed");
-                    break;
-            }
+                if (e.KeyValue >= ((int)Keys.NumPad0) && e.KeyValue <= ((int)Keys.NumPad9))
+                { // numpad
+                    numPressed = e.KeyValue - ((int)Keys.NumPad0);
+                }
+                else if (e.KeyValue >= ((int)Keys.D0) && e.KeyValue <= ((int)Keys.D9))
+                { // regular numbers
+                    numPressed = e.KeyValue - ((int)Keys.D0);
+                }
+                if (currentSelected.Count == 1)
+                {
 
-            updateTotal();
+                }
+            }
+            else
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.B:
+                        targetSeller.addThreeForFiveBundle();
+                        e.SuppressKeyPress = true;
+                        Debug.WriteLine("B was pressed");
+                        break;
+                    case Keys.S:
+                        targetSeller.addOneForTwoBundle();
+                        e.SuppressKeyPress = true;
+                        Debug.WriteLine("S was pressed");
+                        break;
+                }
+                updateList();
+                updateTotal();
+            }
         }
 
         private void updateTotal()

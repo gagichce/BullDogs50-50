@@ -19,6 +19,7 @@ namespace BullDogs50_50
             this.parent = parent;
             FiftyFiftyHelper.getAvailablePouchNumbers(parent.getSellers()).ToList().ForEach(x => listBoxAvailablePouchNumbers.Items.Add(x));
             listBoxAvailablePouchNumbers.SelectedItem = listBoxAvailablePouchNumbers.Items[0];
+            this.ActiveControl = textBoxSellerName;
         }
 
         private void buttonCancelAddSeller_Click(object sender, EventArgs e)
@@ -29,8 +30,22 @@ namespace BullDogs50_50
 
         private void buttonAddSeller_Click(object sender, EventArgs e)
         {
+            addSeller();
+        }
+
+        private void addSeller()
+        {
             parent.addSeller(new Seller(int.Parse(listBoxAvailablePouchNumbers.SelectedItem.ToString()), textBoxSellerName.Text));
             this.Close();
+        }
+
+        private void addNewSeller_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                addSeller();
+                e.Handled = true;
+            }
         }
     }
 }

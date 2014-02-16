@@ -89,10 +89,12 @@
             this.Controls.Add(this.textBoxSellerName);
             this.Controls.Add(this.buttonCancelAddSeller);
             this.Controls.Add(this.buttonAddSeller);
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "addNewSeller";
             this.Text = "Add New Seller";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.addNewSeller_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

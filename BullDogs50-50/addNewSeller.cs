@@ -33,18 +33,25 @@ namespace BullDogs50_50
             addSeller();
         }
 
-        private void addSeller()
+        private bool addSeller()
         {
-            parent.addSeller(new Seller(int.Parse(listBoxAvailablePouchNumbers.SelectedItem.ToString()), textBoxSellerName.Text));
-            this.Close();
+            if (textBoxSellerName.Text.Length > 0)
+            {
+                parent.addSeller(new Seller(int.Parse(listBoxAvailablePouchNumbers.SelectedItem.ToString()), textBoxSellerName.Text));
+                this.Close();
+                return true;
+            }
+            MessageBox.Show("Enter a name for the new seller!");
+            this.ActiveControl = textBoxSellerName;
+            return false;
         }
 
         private void addNewSeller_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                addSeller();
-                e.Handled = true;
+                if (addSeller())
+                    e.Handled = true;
             }
         }
     }
